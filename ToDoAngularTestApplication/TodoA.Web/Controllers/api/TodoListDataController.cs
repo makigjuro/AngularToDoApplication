@@ -8,10 +8,18 @@ namespace TodoA.Web.Controllers.api
 {
     public class TodoListDataController : ApiController
     {
+        #region Properties
+
+        /*
+         * Seeing as this example is more focused on  front end and Angular we will be using a 
+         */
+
+        #endregion
+
         #region Actions
 
         /// <summary>
-        /// Get all todo lists
+        /// Get all to do lists
         /// </summary>
         /// <returns></returns>
         public IEnumerable<TodoListDisplayDto> Get()
@@ -19,7 +27,6 @@ namespace TodoA.Web.Controllers.api
             return GetTestTodoListData();
         }
 
-        
         /// <summary>
         /// GET Details for a single to do List
         /// </summary>
@@ -28,6 +35,16 @@ namespace TodoA.Web.Controllers.api
         public TodoListDetailsDto Get(int id)
         {
             return GetDetailsDto(id);
+        }
+
+        /// <summary>
+        /// POST Details for creating a new to do list
+        /// </summary>
+        /// <param name="listName"></param>
+        /// <returns></returns>
+        public TodoListDisplayDto Post(string listName)
+        {
+            return new TodoListDisplayDto();
         }
 
         #endregion

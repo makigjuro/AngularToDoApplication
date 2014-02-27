@@ -44,10 +44,12 @@
         
 
         /*
-            Save To do List
+            Save To do List. Make a call to the server passing new to do list data
+            =====================================================
         */
 
-        factory.saveTodoList = function (data) {
+        factory.saveNewTodoList = function (data) {
+            
         };
 
         // return the factory object
