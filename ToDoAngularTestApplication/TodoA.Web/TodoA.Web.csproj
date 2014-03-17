@@ -170,11 +170,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\DataController.cs" />
     <Compile Include="Controllers\api\TodoListDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CustomResults\IsoDateJsonResult.cs" />
+    <Compile Include="Infrastructure\Mappings\TodoItemMappings.cs" />
+    <Compile Include="Infrastructure\Mappings\TodoListMappings.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Todo\TodoItemDto.cs" />

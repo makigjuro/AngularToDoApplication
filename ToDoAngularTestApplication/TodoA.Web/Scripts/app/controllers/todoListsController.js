@@ -43,7 +43,7 @@
             // setup what to do when modal is closed either with ok or cancel?
             modalInstance.result.then(
                 function (data) {
-                    todoListFactory.saveTodoList(data);
+                    var promise = todoListFactory.saveNewTodoList(data);
                 }
                 , function () {
                     // modal dismissed, and we will do nothing here

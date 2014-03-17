@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using TodoA.Model.Context;
+using TodoA.Model.Entities;
+using TodoA.Web.Infrastructure.Mappings;
 using TodoA.Web.Models.Todo;
 
 namespace TodoA.Web.Controllers.api
@@ -11,9 +14,21 @@ namespace TodoA.Web.Controllers.api
         #region Properties
 
         /*
-         * Seeing as this example is more focused on  front end and Angular we will be using a 
+         * Seeing as this example is more focused on  front end and Angular we will be using a direct reference
+         * to the context object for data management
          */
 
+        private TodoAContext _context;
+
+        #endregion
+
+        #region Constructor
+
+        public TodoListDataController()
+        {
+            _context = new TodoAContext();
+        }
+        
         #endregion
 
         #region Actions
@@ -44,7 +59,16 @@ namespace TodoA.Web.Controllers.api
         /// <returns></returns>
         public TodoListDisplayDto Post(string listName)
         {
-            return new TodoListDisplayDto();
+            var newList = new TodoList()
+                          {
+                              CreatedOn = DateTime.Now,
+                              Title = listName
+                          };
+
+            _context.TodoLists.Add(newList);
+            _context.SaveChanges();
+
+            return TodoListMappings.GetDetailsDtoFromEntity(newList);
         }
 
         #endregion
